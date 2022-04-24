@@ -9,7 +9,6 @@
         <signal name="RS_RESET" />
         <signal name="CLK_50" />
         <signal name="RS232_RxD" />
-        <signal name="XLXN_5" />
         <signal name="XLXN_6(7:0)" />
         <signal name="SDC_MISO" />
         <signal name="SDC_MOSI" />
@@ -48,6 +47,7 @@
         <signal name="line(63:0)" />
         <signal name="line(7:0)" />
         <signal name="TRANS_OUT" />
+        <signal name="TRANS_IN" />
         <signal name="XLXN_59" />
         <port polarity="Input" name="RS_RESET" />
         <port polarity="Input" name="CLK_50" />
@@ -76,6 +76,7 @@
         <port polarity="BiDirectional" name="LCD_D(3:0)" />
         <port polarity="Output" name="SF_CE" />
         <port polarity="Output" name="TRANS_OUT" />
+        <port polarity="Output" name="TRANS_IN" />
         <blockdef name="RS232">
             <timestamp>2021-12-27T20:31:17</timestamp>
             <line x2="0" y1="32" y2="32" x1="64" />
@@ -93,7 +94,7 @@
             <rect width="256" x="64" y="-320" height="384" />
         </blockdef>
         <blockdef name="Translator">
-            <timestamp>2022-4-4T8:22:7</timestamp>
+            <timestamp>2022-4-24T21:3:1</timestamp>
             <line x2="416" y1="160" y2="160" x1="352" />
             <line x2="0" y1="32" y2="32" x1="64" />
             <line x2="0" y1="-32" y2="-32" x1="64" />
@@ -102,7 +103,7 @@
             <line x2="416" y1="-32" y2="-32" x1="352" />
             <rect width="64" x="352" y="-108" height="24" />
             <line x2="416" y1="-96" y2="-96" x1="352" />
-            <rect width="288" x="64" y="-128" height="320" />
+            <rect width="288" x="64" y="-128" height="384" />
         </blockdef>
         <blockdef name="DACWrite">
             <timestamp>2022-3-20T20:53:18</timestamp>
@@ -207,13 +208,13 @@
             <blockpin name="TxStart" />
             <blockpin name="TxDI(7:0)" />
             <blockpin name="TxBusy" />
-            <blockpin signalname="XLXN_5" name="RxRdy" />
+            <blockpin signalname="TRANS_IN" name="RxRdy" />
             <blockpin name="RS232_TxD" />
             <blockpin signalname="line(7:0)" name="RxDO(7:0)" />
             <blockpin signalname="CLK_50" name="Clk_Sys" />
         </block>
         <block symbolname="Translator" name="XLXI_2">
-            <blockpin signalname="XLXN_5" name="RDY_in" />
+            <blockpin signalname="TRANS_IN" name="RDY_in" />
             <blockpin signalname="CLK_50" name="CLK" />
             <blockpin signalname="line(7:0)" name="DO_in(7:0)" />
             <blockpin signalname="TRANS_OUT" name="RDY_out" />
@@ -512,30 +513,33 @@
         <branch name="line(7:0)">
             <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="672" y="1424" type="branch" />
             <wire x2="672" y1="480" y2="480" x1="560" />
-            <wire x2="672" y1="480" y2="544" x1="672" />
-            <wire x2="672" y1="544" y2="1424" x1="672" />
+            <wire x2="688" y1="480" y2="480" x1="672" />
+            <wire x2="672" y1="480" y2="1424" x1="672" />
             <wire x2="672" y1="1424" y2="1488" x1="672" />
             <wire x2="784" y1="1488" y2="1488" x1="672" />
-            <wire x2="688" y1="480" y2="480" x1="672" />
-        </branch>
-        <branch name="XLXN_5">
-            <wire x2="576" y1="544" y2="544" x1="560" />
-            <wire x2="688" y1="544" y2="544" x1="576" />
         </branch>
         <instance x="688" y="576" name="XLXI_2" orien="R0">
         </instance>
         <branch name="TRANS_OUT">
-            <wire x2="1136" y1="544" y2="544" x1="1104" />
-            <wire x2="1216" y1="544" y2="544" x1="1136" />
-            <wire x2="1136" y1="544" y2="768" x1="1136" />
+            <wire x2="1168" y1="544" y2="544" x1="1104" />
+            <wire x2="1216" y1="544" y2="544" x1="1168" />
+            <wire x2="1168" y1="544" y2="672" x1="1168" />
             <wire x2="1216" y1="368" y2="544" x1="1216" />
             <wire x2="1232" y1="368" y2="368" x1="1216" />
         </branch>
-        <branch name="XLXN_59">
-            <wire x2="1168" y1="736" y2="736" x1="1104" />
-            <wire x2="1168" y1="432" y2="736" x1="1168" />
-            <wire x2="1232" y1="432" y2="432" x1="1168" />
+        <iomarker fontsize="28" x="576" y="768" name="TRANS_IN" orien="R90" />
+        <branch name="TRANS_IN">
+            <wire x2="576" y1="544" y2="544" x1="560" />
+            <wire x2="576" y1="544" y2="768" x1="576" />
+            <wire x2="688" y1="544" y2="544" x1="576" />
         </branch>
-        <iomarker fontsize="28" x="1136" y="768" name="TRANS_OUT" orien="R90" />
+        <iomarker fontsize="28" x="1168" y="672" name="TRANS_OUT" orien="R90" />
+        <branch name="XLXN_59">
+            <wire x2="1232" y1="432" y2="432" x1="656" />
+            <wire x2="656" y1="432" y2="896" x1="656" />
+            <wire x2="1120" y1="896" y2="896" x1="656" />
+            <wire x2="1120" y1="736" y2="736" x1="1104" />
+            <wire x2="1120" y1="736" y2="896" x1="1120" />
+        </branch>
     </sheet>
 </drawing>

@@ -40,7 +40,7 @@ end Translator;
 
 architecture Behavioral of Translator is
 
-constant DELAY: time := 100 ns;
+constant DELAY: time := 100 ns; --too small?
 
 begin
 
@@ -48,24 +48,16 @@ begin
 	begin
 		if rising_edge(CLK) then
 			if RDY_in = '1' then
-				--RESET <= '1', '0' after DELAY;
+				RESET <= '1', '0' after DELAY/2;
 				RDY_out <= '0';
 				DO_out <= DO_in after DELAY;
+				--RESET <= '0' after DELAY;
 				RDY_out <= '1' after DELAY*2;
 			else
 				RDY_out <= '0';
 			end if;
 		end if;
 	end process process1;
-	
-	process2: process( CLK, RDY_in  )
-	begin
-		if rising_edge(CLK) then
-		if RDY_in = '1' then
-				RESET <= '1', '0' after DELAY;
-			end if;
-		end if;
-	end process process2;
 
 end Behavioral;
 
