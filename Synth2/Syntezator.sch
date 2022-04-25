@@ -48,7 +48,11 @@
         <signal name="line(7:0)" />
         <signal name="TRANS_OUT" />
         <signal name="TRANS_IN" />
+        <signal name="line(39:8)" />
+        <signal name="line(63:40)" />
         <signal name="XLXN_59" />
+        <signal name="MANUAL" />
+        <signal name="XLXN_61" />
         <port polarity="Input" name="RS_RESET" />
         <port polarity="Input" name="CLK_50" />
         <port polarity="Input" name="RS232_RxD" />
@@ -77,6 +81,7 @@
         <port polarity="Output" name="SF_CE" />
         <port polarity="Output" name="TRANS_OUT" />
         <port polarity="Output" name="TRANS_IN" />
+        <port polarity="Input" name="MANUAL" />
         <blockdef name="RS232">
             <timestamp>2021-12-27T20:31:17</timestamp>
             <line x2="0" y1="32" y2="32" x1="64" />
@@ -94,7 +99,7 @@
             <rect width="256" x="64" y="-320" height="384" />
         </blockdef>
         <blockdef name="Translator">
-            <timestamp>2022-4-24T21:3:1</timestamp>
+            <timestamp>2022-4-25T7:59:39</timestamp>
             <line x2="416" y1="160" y2="160" x1="352" />
             <line x2="0" y1="32" y2="32" x1="64" />
             <line x2="0" y1="-32" y2="-32" x1="64" />
@@ -201,6 +206,17 @@
             <rect width="112" x="0" y="0" height="64" />
             <line x2="112" y1="32" y2="32" x1="144" />
         </blockdef>
+        <blockdef name="or2">
+            <timestamp>2000-1-1T10:10:10</timestamp>
+            <line x2="64" y1="-64" y2="-64" x1="0" />
+            <line x2="64" y1="-128" y2="-128" x1="0" />
+            <line x2="192" y1="-96" y2="-96" x1="256" />
+            <arc ex="192" ey="-96" sx="112" sy="-48" r="88" cx="116" cy="-136" />
+            <arc ex="48" ey="-144" sx="48" sy="-48" r="56" cx="16" cy="-96" />
+            <line x2="48" y1="-144" y2="-144" x1="112" />
+            <arc ex="112" ey="-144" sx="192" sy="-96" r="88" cx="116" cy="-56" />
+            <line x2="48" y1="-48" y2="-48" x1="112" />
+        </blockdef>
         <block symbolname="RS232" name="XLXI_1">
             <blockpin signalname="CLK_50" name="Clk_50MHz" />
             <blockpin signalname="RS_RESET" name="Reset" />
@@ -244,7 +260,7 @@
         <block symbolname="WAVreader" name="XLXI_4">
             <blockpin signalname="XLXN_6(7:0)" name="FName(7:0)" />
             <blockpin signalname="TRANS_OUT" name="Start" />
-            <blockpin signalname="XLXN_59" name="Abort" />
+            <blockpin signalname="XLXN_61" name="Abort" />
             <blockpin signalname="SDC_MOSI" name="SDC_MOSI" />
             <blockpin signalname="SDC_SCK" name="SDC_SCK" />
             <blockpin signalname="SDC_SS" name="SDC_SS" />
@@ -289,12 +305,28 @@
             <blockpin signalname="SF_CE" name="SF_CE" />
         </block>
         <block symbolname="constant" name="XLXI_8">
-            <attr value="FFF0" name="CValue">
+            <attr value="FFFC" name="CValue">
                 <trait delete="all:1 sym:0" />
                 <trait editname="all:1 sch:0" />
                 <trait valuetype="BitVector 32 Hexadecimal" />
             </attr>
             <blockpin signalname="XLXN_56(15:0)" name="O" />
+        </block>
+        <block symbolname="constant" name="XLXI_9">
+            <blockpin signalname="line(39:8)" name="O" />
+        </block>
+        <block symbolname="constant" name="XLXI_10">
+            <attr value="FFFFFF" name="CValue">
+                <trait delete="all:1 sym:0" />
+                <trait editname="all:1 sch:0" />
+                <trait valuetype="BitVector 32 Hexadecimal" />
+            </attr>
+            <blockpin signalname="line(63:40)" name="O" />
+        </block>
+        <block symbolname="or2" name="XLXI_11">
+            <blockpin signalname="MANUAL" name="I0" />
+            <blockpin signalname="XLXN_59" name="I1" />
+            <blockpin signalname="XLXN_61" name="O" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -313,10 +345,10 @@
             <wire x2="96" y1="608" y2="672" x1="96" />
             <wire x2="96" y1="672" y2="1280" x1="96" />
             <wire x2="176" y1="672" y2="672" x1="96" />
-            <wire x2="496" y1="1264" y2="1280" x1="496" />
-            <wire x2="624" y1="1264" y2="1264" x1="496" />
-            <wire x2="624" y1="608" y2="1264" x1="624" />
-            <wire x2="688" y1="608" y2="608" x1="624" />
+            <wire x2="496" y1="752" y2="1280" x1="496" />
+            <wire x2="624" y1="752" y2="752" x1="496" />
+            <wire x2="624" y1="608" y2="752" x1="624" />
+            <wire x2="656" y1="608" y2="608" x1="624" />
             <wire x2="1232" y1="1072" y2="1072" x1="1184" />
             <wire x2="1184" y1="1072" y2="1136" x1="1184" />
             <wire x2="1232" y1="1136" y2="1136" x1="1184" />
@@ -465,13 +497,9 @@
             <wire x2="2464" y1="1200" y2="1200" x1="2176" />
         </branch>
         <branch name="XLXN_6(7:0)">
-            <wire x2="1200" y1="480" y2="480" x1="1104" />
-            <wire x2="1200" y1="480" y2="1248" x1="1200" />
-            <wire x2="1680" y1="1248" y2="1248" x1="1200" />
-            <wire x2="1216" y1="192" y2="304" x1="1216" />
-            <wire x2="1232" y1="304" y2="304" x1="1216" />
-            <wire x2="1680" y1="192" y2="192" x1="1216" />
-            <wire x2="1680" y1="192" y2="1248" x1="1680" />
+            <wire x2="1136" y1="480" y2="480" x1="1072" />
+            <wire x2="1136" y1="304" y2="480" x1="1136" />
+            <wire x2="1232" y1="304" y2="304" x1="1136" />
         </branch>
         <iomarker fontsize="28" x="160" y="544" name="RS_RESET" orien="R180" />
         <instance x="1168" y="1824" name="XLXI_7" orien="R0">
@@ -504,26 +532,27 @@
         <iomarker fontsize="28" x="288" y="1360" name="RESET" orien="R180" />
         <branch name="line(63:0)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="944" y="1536" type="branch" />
-            <wire x2="880" y1="1456" y2="1488" x1="880" />
+            <wire x2="880" y1="1344" y2="1376" x1="880" />
+            <wire x2="880" y1="1376" y2="1440" x1="880" />
+            <wire x2="880" y1="1440" y2="1488" x1="880" />
             <wire x2="880" y1="1488" y2="1536" x1="880" />
             <wire x2="944" y1="1536" y2="1536" x1="880" />
             <wire x2="1168" y1="1536" y2="1536" x1="944" />
         </branch>
         <bustap x2="784" y1="1488" y2="1488" x1="880" />
         <branch name="line(7:0)">
-            <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="672" y="1424" type="branch" />
-            <wire x2="672" y1="480" y2="480" x1="560" />
-            <wire x2="688" y1="480" y2="480" x1="672" />
-            <wire x2="672" y1="480" y2="1424" x1="672" />
-            <wire x2="672" y1="1424" y2="1488" x1="672" />
-            <wire x2="784" y1="1488" y2="1488" x1="672" />
+            <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="1424" type="branch" />
+            <wire x2="640" y1="480" y2="480" x1="560" />
+            <wire x2="640" y1="480" y2="1424" x1="640" />
+            <wire x2="640" y1="1424" y2="1488" x1="640" />
+            <wire x2="784" y1="1488" y2="1488" x1="640" />
+            <wire x2="656" y1="480" y2="480" x1="640" />
         </branch>
-        <instance x="688" y="576" name="XLXI_2" orien="R0">
-        </instance>
         <branch name="TRANS_OUT">
-            <wire x2="1168" y1="544" y2="544" x1="1104" />
+            <wire x2="1168" y1="192" y2="192" x1="1072" />
+            <wire x2="1168" y1="192" y2="544" x1="1168" />
             <wire x2="1216" y1="544" y2="544" x1="1168" />
-            <wire x2="1168" y1="544" y2="672" x1="1168" />
+            <wire x2="1168" y1="544" y2="544" x1="1072" />
             <wire x2="1216" y1="368" y2="544" x1="1216" />
             <wire x2="1232" y1="368" y2="368" x1="1216" />
         </branch>
@@ -531,15 +560,41 @@
         <branch name="TRANS_IN">
             <wire x2="576" y1="544" y2="544" x1="560" />
             <wire x2="576" y1="544" y2="768" x1="576" />
-            <wire x2="688" y1="544" y2="544" x1="576" />
+            <wire x2="656" y1="544" y2="544" x1="576" />
         </branch>
-        <iomarker fontsize="28" x="1168" y="672" name="TRANS_OUT" orien="R90" />
+        <bustap x2="976" y1="1376" y2="1376" x1="880" />
+        <bustap x2="976" y1="1440" y2="1440" x1="880" />
+        <branch name="line(39:8)">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1120" y="1376" type="branch" />
+            <wire x2="1120" y1="1376" y2="1376" x1="976" />
+            <wire x2="1168" y1="1376" y2="1376" x1="1120" />
+        </branch>
+        <branch name="line(63:40)">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1024" y="1440" type="branch" />
+            <wire x2="1024" y1="1440" y2="1440" x1="976" />
+            <wire x2="1040" y1="1440" y2="1440" x1="1024" />
+        </branch>
+        <instance x="1184" y="1472" name="XLXI_10" orien="R180">
+        </instance>
+        <instance x="1312" y="1408" name="XLXI_9" orien="R180">
+        </instance>
+        <instance x="656" y="576" name="XLXI_2" orien="R0">
+        </instance>
+        <iomarker fontsize="28" x="1072" y="192" name="TRANS_OUT" orien="R180" />
+        <instance x="1248" y="832" name="XLXI_11" orien="R270" />
         <branch name="XLXN_59">
-            <wire x2="1232" y1="432" y2="432" x1="656" />
-            <wire x2="656" y1="432" y2="896" x1="656" />
-            <wire x2="1120" y1="896" y2="896" x1="656" />
-            <wire x2="1120" y1="736" y2="736" x1="1104" />
-            <wire x2="1120" y1="736" y2="896" x1="1120" />
+            <wire x2="1088" y1="736" y2="736" x1="1072" />
+            <wire x2="1088" y1="736" y2="912" x1="1088" />
+            <wire x2="1120" y1="912" y2="912" x1="1088" />
+            <wire x2="1120" y1="832" y2="912" x1="1120" />
+        </branch>
+        <branch name="MANUAL">
+            <wire x2="1184" y1="832" y2="880" x1="1184" />
+        </branch>
+        <iomarker fontsize="28" x="1184" y="880" name="MANUAL" orien="R90" />
+        <branch name="XLXN_61">
+            <wire x2="1232" y1="432" y2="432" x1="1152" />
+            <wire x2="1152" y1="432" y2="576" x1="1152" />
         </branch>
     </sheet>
 </drawing>
