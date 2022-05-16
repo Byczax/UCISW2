@@ -26,7 +26,6 @@
         <signal name="XLXN_49" />
         <signal name="XLXN_50(3:0)" />
         <signal name="XLXN_51(3:0)" />
-        <signal name="XLXN_52(11:0)" />
         <signal name="SPI_MOSI" />
         <signal name="SPI_MISO" />
         <signal name="SPI_SCK" />
@@ -44,15 +43,15 @@
         <signal name="LCD_D(3:0)" />
         <signal name="SF_CE" />
         <signal name="line(63:0)" />
-        <signal name="line(7:0)" />
-        <signal name="TRANS_OUT" />
-        <signal name="TRANS_IN" />
         <signal name="line(39:8)" />
         <signal name="line(63:40)" />
-        <signal name="LED_RESET" />
+        <signal name="XLXN_52(11:0)" />
+        <signal name="line(7:0)" />
+        <signal name="XLXN_77" />
         <signal name="MANUAL" />
-        <signal name="XLXN_61" />
-        <signal name="XLXN_62" />
+        <signal name="XLXN_78" />
+        <signal name="XLXN_82" />
+        <signal name="XLXN_83" />
         <port polarity="Input" name="RS_RESET" />
         <port polarity="Input" name="CLK_50" />
         <port polarity="Input" name="RS232_RxD" />
@@ -79,9 +78,6 @@
         <port polarity="Output" name="LCD_RW" />
         <port polarity="BiDirectional" name="LCD_D(3:0)" />
         <port polarity="Output" name="SF_CE" />
-        <port polarity="Output" name="TRANS_OUT" />
-        <port polarity="Output" name="TRANS_IN" />
-        <port polarity="Output" name="LED_RESET" />
         <port polarity="Input" name="MANUAL" />
         <blockdef name="RS232">
             <timestamp>2021-12-27T20:31:17</timestamp>
@@ -98,18 +94,6 @@
             <line x2="0" y1="-224" y2="-224" x1="64" />
             <line x2="0" y1="-160" y2="-160" x1="64" />
             <rect width="256" x="64" y="-320" height="384" />
-        </blockdef>
-        <blockdef name="Translator">
-            <timestamp>2022-5-16T6:38:7</timestamp>
-            <line x2="416" y1="160" y2="160" x1="352" />
-            <line x2="0" y1="32" y2="32" x1="64" />
-            <line x2="0" y1="-32" y2="-32" x1="64" />
-            <rect width="64" x="0" y="-108" height="24" />
-            <line x2="0" y1="-96" y2="-96" x1="64" />
-            <line x2="416" y1="-32" y2="-32" x1="352" />
-            <rect width="64" x="352" y="-108" height="24" />
-            <line x2="416" y1="-96" y2="-96" x1="352" />
-            <rect width="288" x="64" y="-128" height="384" />
         </blockdef>
         <blockdef name="DACWrite">
             <timestamp>2022-3-20T20:53:18</timestamp>
@@ -218,14 +202,21 @@
             <arc ex="112" ey="-144" sx="192" sy="-96" r="88" cx="116" cy="-56" />
             <line x2="48" y1="-48" y2="-48" x1="112" />
         </blockdef>
+        <blockdef name="delay">
+            <timestamp>2022-5-16T8:55:31</timestamp>
+            <line x2="0" y1="32" y2="32" x1="64" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+            <line x2="384" y1="-32" y2="-32" x1="320" />
+            <rect width="256" x="64" y="-64" height="128" />
+        </blockdef>
         <block symbolname="RS232" name="XLXI_1">
             <blockpin signalname="CLK_50" name="Clk_50MHz" />
             <blockpin signalname="RS_RESET" name="Reset" />
             <blockpin signalname="RS232_RxD" name="RS232_RxD" />
             <blockpin name="TxStart" />
             <blockpin name="TxDI(7:0)" />
-            <blockpin name="TxBusy" />
-            <blockpin signalname="TRANS_IN" name="RxRdy" />
+            <blockpin signalname="XLXN_78" name="TxBusy" />
+            <blockpin signalname="XLXN_83" name="RxRdy" />
             <blockpin name="RS232_TxD" />
             <blockpin signalname="line(7:0)" name="RxDO(7:0)" />
             <blockpin signalname="CLK_50" name="Clk_Sys" />
@@ -252,8 +243,8 @@
         </block>
         <block symbolname="WAVreader" name="XLXI_4">
             <blockpin signalname="line(7:0)" name="FName(7:0)" />
-            <blockpin signalname="TRANS_OUT" name="Start" />
-            <blockpin signalname="XLXN_61" name="Abort" />
+            <blockpin signalname="XLXN_82" name="Start" />
+            <blockpin signalname="XLXN_77" name="Abort" />
             <blockpin signalname="SDC_MOSI" name="SDC_MOSI" />
             <blockpin signalname="SDC_SCK" name="SDC_SCK" />
             <blockpin signalname="SDC_SS" name="SDC_SS" />
@@ -316,18 +307,15 @@
             </attr>
             <blockpin signalname="line(63:40)" name="O" />
         </block>
-        <block symbolname="or2" name="XLXI_11">
+        <block symbolname="or2" name="XLXI_29">
             <blockpin signalname="MANUAL" name="I0" />
-            <blockpin signalname="LED_RESET" name="I1" />
-            <blockpin signalname="XLXN_61" name="O" />
+            <blockpin signalname="XLXN_78" name="I1" />
+            <blockpin signalname="XLXN_77" name="O" />
         </block>
-        <block symbolname="Translator" name="XLXI_13">
-            <blockpin signalname="TRANS_IN" name="RDY_in" />
+        <block symbolname="delay" name="XLXI_33">
+            <blockpin signalname="XLXN_83" name="U_IN" />
             <blockpin signalname="CLK_50" name="CLK" />
-            <blockpin name="DO_in(7:0)" />
-            <blockpin signalname="TRANS_OUT" name="RDY_out" />
-            <blockpin signalname="LED_RESET" name="RESET" />
-            <blockpin name="DO_out(7:0)" />
+            <blockpin signalname="XLXN_82" name="U_OUT" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -344,12 +332,10 @@
             <wire x2="1168" y1="1792" y2="1792" x1="496" />
             <wire x2="176" y1="608" y2="608" x1="96" />
             <wire x2="96" y1="608" y2="672" x1="96" />
-            <wire x2="96" y1="672" y2="1280" x1="96" />
             <wire x2="176" y1="672" y2="672" x1="96" />
-            <wire x2="496" y1="752" y2="1280" x1="496" />
-            <wire x2="624" y1="752" y2="752" x1="496" />
-            <wire x2="624" y1="560" y2="752" x1="624" />
-            <wire x2="656" y1="560" y2="560" x1="624" />
+            <wire x2="96" y1="672" y2="912" x1="96" />
+            <wire x2="96" y1="912" y2="1280" x1="96" />
+            <wire x2="784" y1="912" y2="912" x1="96" />
             <wire x2="1232" y1="1072" y2="1072" x1="1184" />
             <wire x2="1184" y1="1072" y2="1136" x1="1184" />
             <wire x2="1232" y1="1136" y2="1136" x1="1184" />
@@ -364,8 +350,8 @@
         </branch>
         <branch name="RS232_RxD">
             <wire x2="576" y1="352" y2="352" x1="560" />
-            <wire x2="592" y1="288" y2="288" x1="576" />
-            <wire x2="576" y1="288" y2="352" x1="576" />
+            <wire x2="592" y1="256" y2="256" x1="576" />
+            <wire x2="576" y1="256" y2="352" x1="576" />
         </branch>
         <branch name="SDC_MISO">
             <wire x2="1696" y1="304" y2="304" x1="1664" />
@@ -444,9 +430,6 @@
         </branch>
         <branch name="XLXN_51(3:0)">
             <wire x2="2464" y1="752" y2="752" x1="2384" />
-        </branch>
-        <branch name="XLXN_52(11:0)">
-            <wire x2="2464" y1="816" y2="816" x1="2384" />
         </branch>
         <branch name="SPI_MOSI">
             <wire x2="2944" y1="624" y2="624" x1="2912" />
@@ -537,23 +520,6 @@
             <wire x2="1168" y1="1536" y2="1536" x1="944" />
         </branch>
         <bustap x2="784" y1="1488" y2="1488" x1="880" />
-        <branch name="TRANS_OUT">
-            <wire x2="1168" y1="192" y2="192" x1="1072" />
-            <wire x2="1168" y1="192" y2="544" x1="1168" />
-            <wire x2="1216" y1="544" y2="544" x1="1168" />
-            <wire x2="1120" y1="496" y2="496" x1="1072" />
-            <wire x2="1120" y1="496" y2="544" x1="1120" />
-            <wire x2="1168" y1="544" y2="544" x1="1120" />
-            <wire x2="1216" y1="368" y2="544" x1="1216" />
-            <wire x2="1232" y1="368" y2="368" x1="1216" />
-        </branch>
-        <iomarker fontsize="28" x="576" y="768" name="TRANS_IN" orien="R90" />
-        <branch name="TRANS_IN">
-            <wire x2="576" y1="544" y2="544" x1="560" />
-            <wire x2="576" y1="544" y2="768" x1="576" />
-            <wire x2="656" y1="496" y2="496" x1="576" />
-            <wire x2="576" y1="496" y2="544" x1="576" />
-        </branch>
         <bustap x2="976" y1="1376" y2="1376" x1="880" />
         <bustap x2="976" y1="1440" y2="1440" x1="880" />
         <branch name="line(39:8)">
@@ -570,45 +536,47 @@
         </instance>
         <instance x="1312" y="1408" name="XLXI_9" orien="R180">
         </instance>
-        <iomarker fontsize="28" x="1072" y="192" name="TRANS_OUT" orien="R180" />
-        <instance x="1248" y="832" name="XLXI_11" orien="R270" />
-        <branch name="LED_RESET">
-            <wire x2="1088" y1="912" y2="912" x1="1008" />
-            <wire x2="1120" y1="912" y2="912" x1="1088" />
-            <wire x2="1088" y1="688" y2="688" x1="1072" />
-            <wire x2="1088" y1="688" y2="736" x1="1088" />
-            <wire x2="1088" y1="736" y2="912" x1="1088" />
-            <wire x2="1120" y1="832" y2="912" x1="1120" />
-        </branch>
-        <branch name="MANUAL">
-            <wire x2="1184" y1="832" y2="880" x1="1184" />
-        </branch>
-        <iomarker fontsize="28" x="1184" y="880" name="MANUAL" orien="R90" />
-        <branch name="XLXN_61">
-            <wire x2="1232" y1="432" y2="432" x1="1152" />
-            <wire x2="1152" y1="432" y2="576" x1="1152" />
+        <iomarker fontsize="28" x="592" y="256" name="RS232_RxD" orien="R0" />
+        <branch name="XLXN_52(11:0)">
+            <wire x2="2464" y1="816" y2="816" x1="2384" />
         </branch>
         <branch name="line(7:0)">
-            <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="640" y="1424" type="branch" />
-            <wire x2="608" y1="736" y2="736" x1="464" />
-            <wire x2="464" y1="736" y2="1248" x1="464" />
-            <wire x2="1680" y1="1248" y2="1248" x1="464" />
-            <wire x2="640" y1="480" y2="480" x1="560" />
-            <wire x2="640" y1="480" y2="1424" x1="640" />
-            <wire x2="640" y1="1424" y2="1488" x1="640" />
-            <wire x2="784" y1="1488" y2="1488" x1="640" />
-            <wire x2="640" y1="464" y2="464" x1="608" />
-            <wire x2="640" y1="464" y2="480" x1="640" />
-            <wire x2="608" y1="464" y2="736" x1="608" />
-            <wire x2="1680" y1="256" y2="256" x1="1136" />
-            <wire x2="1680" y1="256" y2="1248" x1="1680" />
-            <wire x2="1136" y1="256" y2="304" x1="1136" />
-            <wire x2="1136" y1="304" y2="480" x1="1136" />
-            <wire x2="1232" y1="304" y2="304" x1="1136" />
+            <attrtext style="alignment:SOFT-TVCENTER;fontsize:28;fontname:Arial" attrname="Name" x="672" y="736" type="branch" />
+            <wire x2="672" y1="480" y2="480" x1="560" />
+            <wire x2="672" y1="480" y2="736" x1="672" />
+            <wire x2="672" y1="736" y2="1488" x1="672" />
+            <wire x2="784" y1="1488" y2="1488" x1="672" />
+            <wire x2="672" y1="304" y2="480" x1="672" />
+            <wire x2="1232" y1="304" y2="304" x1="672" />
         </branch>
-        <instance x="656" y="528" name="XLXI_13" orien="R0">
+        <instance x="944" y="528" name="XLXI_29" orien="R0" />
+        <branch name="XLXN_77">
+            <wire x2="1232" y1="432" y2="432" x1="1200" />
+        </branch>
+        <branch name="MANUAL">
+            <wire x2="944" y1="464" y2="464" x1="928" />
+            <wire x2="928" y1="464" y2="640" x1="928" />
+            <wire x2="944" y1="640" y2="640" x1="928" />
+        </branch>
+        <iomarker fontsize="28" x="944" y="640" name="MANUAL" orien="R0" />
+        <branch name="XLXN_78">
+            <wire x2="752" y1="608" y2="608" x1="560" />
+            <wire x2="752" y1="400" y2="608" x1="752" />
+            <wire x2="944" y1="400" y2="400" x1="752" />
+        </branch>
+        <branch name="XLXN_82">
+            <wire x2="880" y1="368" y2="688" x1="880" />
+            <wire x2="1200" y1="688" y2="688" x1="880" />
+            <wire x2="1200" y1="688" y2="848" x1="1200" />
+            <wire x2="1232" y1="368" y2="368" x1="880" />
+            <wire x2="1200" y1="848" y2="848" x1="1168" />
+        </branch>
+        <branch name="XLXN_83">
+            <wire x2="768" y1="544" y2="544" x1="560" />
+            <wire x2="768" y1="544" y2="848" x1="768" />
+            <wire x2="784" y1="848" y2="848" x1="768" />
+        </branch>
+        <instance x="784" y="880" name="XLXI_33" orien="R0">
         </instance>
-        <iomarker fontsize="28" x="1008" y="912" name="LED_RESET" orien="R180" />
-        <iomarker fontsize="28" x="592" y="288" name="RS232_RxD" orien="R0" />
     </sheet>
 </drawing>
