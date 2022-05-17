@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Qucker135\Documents\ISE_DS_projects\UCISW3\UCISW3\instrument.ncd
+OUTFILE=C:\Users\Qucker135\Documents\ISE_DS_projects\UCISW3\UCISW3\instrument.bit
+FAMILY=Spartan3E
+PART=xc3s500e-5fg320
+WORKINGDIR=C:\Users\Qucker135\Documents\ISE_DS_projects\UCISW3\UCISW3
+LICENSE=WebPack
+USER_INFO=212309850_0_0_760

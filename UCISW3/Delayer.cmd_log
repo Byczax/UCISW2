@@ -1,0 +1,32 @@
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
+vhdtdtfi -lib work Delayer.vhd -prj UCISW3 -o Delayer.spl -module Delayer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Delayer.spl C:/Users/Qucker135/Documents/ISE_DS_projects/UCISW3/UCISW3/Delayer.sym 
