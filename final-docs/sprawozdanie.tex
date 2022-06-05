@@ -1,44 +1,38 @@
 %!TEX program = xelatex
 \documentclass{article}
 
-\usepackage[T1]{fontenc}
-\usepackage[polish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{titling}
-\usepackage{multicol}
-\usepackage{paracol}
-\usepackage{indentfirst}
-\usepackage{float}
 
 \usepackage[utf8]{inputenc} %rodzaj czcionki w dokumencie
-\usepackage{geometry} %poprawienie marginesów
-\usepackage{polski} %polskie znaki
-\usepackage{multirow} %tabela
-\usepackage{graphicx} %tabela
-\usepackage{float} %poprawienie pozycji
-\usepackage{fancyhdr} % header i footer
-\usepackage{karnaugh-map} % rysowanie siatek karnaugh
-\usepackage{hyperref} %tworzenie odnośników, \url{<url>}, \href{<file path, link>}{<text with link>} \pageref{}
-\usepackage{amsmath} % Matma
-\usepackage{boldline}%edytowanie grubości krawędzi w tabelach \hlineB{} \clineB{}{}
-\usepackage{array}%grubsze kolumny w tabeli
-\usepackage{bigstrut}
-\usepackage{caption}
-\usepackage{listings} %pisanie kodu w ładny sposób, begin{listings}[language=<język>]...end{listings} tak samo jak nazwa paczki
+% \usepackage[T1]{fontenc}
+% \usepackage[polish]{babel}
 
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
-
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{amsmath} % Matma
+\usepackage{array}%grubsze kolumny w tabeli
+\usepackage{bigstrut}
+\usepackage{boldline}%edytowanie grubości krawędzi w tabelach \hlineB{} \clineB{}{}
+\usepackage{caption}
+\usepackage{fancyhdr} % header i footer
+\usepackage{float} %poprawienie pozycji
+\usepackage{geometry} %poprawienie marginesów
+\usepackage{graphicx} %tabela
+\usepackage{hyperref} %tworzenie odnośników, \url{<url>}, \href{<file path, link>}{<text with link>} \pageref{}
+\usepackage{indentfirst}
+\usepackage{karnaugh-map} % rysowanie siatek karnaugh
+\usepackage{listings} %pisanie kodu w ładny sposób, begin{listings}[language=<język>]...end{listings} tak samo jak nazwa paczki
+\usepackage{multirow} %tabela
+\usepackage{paracol}
+\usepackage{polski} %polskie znaki
+% \usepackage{titling}
 
 %Ustawienie paczki hyperref
 \hypersetup{
-     colorlinks,
+     colorlinks=true,
      citecolor=black,
      filecolor=black,
      linkcolor=black,
-     urlcolor=black
+     urlcolor=black,
+     allcolors=blue
 	%  language=vhdl
 }
 
@@ -58,8 +52,8 @@ breakatwhitespace=false,
 showspaces=false,                
 showstringspaces=false,
 showtabs=false,
-commentstyle=\color{gray},
-keywordstyle=\color{ZeroBlue},
+commentstyle=\color{ZeroBlue},
+keywordstyle=\color{AO},
 % keywordstyle={[2]\color{DarkRed}},
 % keywordstyle={[3]\color{ZeroBlue}},
 }
@@ -288,9 +282,9 @@ Użytkownik może jednak całkowicie to zignorować i nagrać własne próbki d�
 \begin{itemize}
     \item The Programmable Logic Data Book. Xilinx, Inc.
     \item Libraries Guide. Xilinx, Inc.
-    \item http://www.zsk.ict.pwr.wroc.pl/zsk\_ftp/fpga/
-    \item http://gmvhdl.com/delay.htm
-    \item https://vhdlwhiz.com/std\_logic/
+    \item \url{http://www.zsk.ict.pwr.wroc.pl/zsk\_ftp/fpga/}
+    \item \url{http://gmvhdl.com/delay.htm}
+    \item \url{https://vhdlwhiz.com/std\_logic/}
 \end{itemize}
 
 \end{document}

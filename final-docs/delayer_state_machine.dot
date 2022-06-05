@@ -1,8 +1,6 @@
 digraph G {
-  idle -> aborting [label="rising                 
-  _edge(CLK)                    
-  && RDY_IN='1'                     "];
-  aborting -> idle [label="rising
-  _edge(CLK)
+  idle -> aborting [label="rising_edge(CLK)         
+  && RDY_IN='1'"];
+  aborting -> idle [label="rising_edge(CLK)
   && Busy='0'"];
 }
