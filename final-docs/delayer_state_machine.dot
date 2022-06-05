@@ -1,0 +1,8 @@
+digraph G {
+  idle -> aborting [label="rising                 
+  _edge(CLK)                    
+  && RDY_IN='1'                     "];
+  aborting -> idle [label="rising
+  _edge(CLK)
+  && Busy='0'"];
+}
